@@ -129,7 +129,7 @@ nav {
 /* fin de la personalizacion del submenu */
 
 .fondo-inicio{
-    background: url('../img/anillos/anillos.fondo-recortado-1.jpg');
+    background: url('../img/inicio/samsung-wallpaper.jpg');
     background-size: cover;
     background-position: center;
     height: 400px;
@@ -187,6 +187,7 @@ nav {
 }
 
 .content-muestra-aretes{
+    display: flex;
     margin: 40px 10px;
 }
 
@@ -211,36 +212,27 @@ nav {
 }
 
 .muestra-aretes-imagen img{
-    height: 150px;
+    height: 220px;
     width: auto;
 }
-
-.muestra-aretes-descripcion, .muestra-aretes-medida, .muestra-aretes-stock{
-    display: none;
-}
-
-/* estrellas que seran dejadas de lado por el momento */
-
-
-.muestra-aretes-estrellas{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.muestra-aretes-estrellas img{
-    width: 50px;
-    height: auto;
-    margin: 10px;
-}
-
-/* fin del estilo de las estrellas */
 
 
 .muestra-aretes-precio{
     text-align: center;
     font-family:'Courier New', Courier, monospace;
     font-size: 18px;
+}
+
+.muestra-aretes-descripcion {
+    display: none;
+}
+
+.muestra-aretes-medida {
+    display: none;
+}
+
+.muestra-aretes-stock {
+    display: none;
 }
 
 
