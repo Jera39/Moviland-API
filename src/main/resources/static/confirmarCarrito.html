@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmar Compra</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="Bootstrap/css/bootstrap.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/personalizacioin.css">
+
+</head>
+
+<body class="grid-contenido">
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark" id="prueba">
+            <div class="container-fluid">
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ">
+                        <li class="nav-item">
+                            <a class="nav-link active " href="index.html">Inicio</a>
+                        </li>
+                        <li class="nav-item" id="venta-item">
+                            <a class="nav-link active" aria-current="page" href="#">Venta</a>
+                            <!-- submenu -->
+                            <div class="submenu">
+                                <p>CATEGORÍAS:</p>
+                                <ul>
+                                    <li><a href="apple.html">• Apple</a></li>
+                                    <li><a href="huawei.html">• Huawei</a></li>
+                                    <li><a href="samsung.html">• Samsung</a></li>
+                                    <li><a href="xiaomi.html">• Xiaomi</a></li>
+                                    <li><a href="prueba.html">• Prueba-Conexion</a></li>
+                                </ul>
+                            </div>
+
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active " href="">Nosotros</a>
+                            <div class="submenu">
+                                <ul>
+                                    <li><a href="contactenos.html">• Contáctanos</a></li>
+                                    <li><a href="nosotrosh.html">• Nuestra Historia</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active " href="productos.html">Mis Pedidos</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="cuadro-logotipo">
+                    <a class="logotipo" href="index.html">Movi-Land</a>
+                </div>
+
+
+
+                <li class="d-flex" id="login">
+                    <div class="cuadro-login">
+                        <a href="" id="enlaceLogin"><svg viewBox="0 0 24 24" width="50px" height="50px" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                <g id="SVGRepo_iconCarrier">
+                                    <circle cx="12" cy="6" r="4" fill="#000000"></circle>
+                                    <ellipse opacity="0.5" cx="12" cy="17" rx="7" ry="4" fill="#000000"></ellipse>
+                                </g>
+                            </svg> Loguearme</a>
+                    </div>
+                </li>
+            </div>
+        </nav>
+    </header>
+
+
+    <article class="cuer">
+        <div class="container">
+            <h2>¡LISTO PARA ENVIAR! SOLO CONFIRMA TU COMPRA.</h2>
+            <br><br><br>
+            <p>JOYERÍA / CATEGORÍA / CONFIRMAR COMPRA</p>
+            <br>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputEmail4">Nombres*</label>
+                    <input type="text" class="form-control col-md-10" id="nombres" placeholder="" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="inputPassword4">Apellidos*</label>
+                    <input type="text" class="form-control col-md-10" id="apellidos" placeholder="" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="inputEmail4">Correo Electronico*</label>
+                    <input type="text" class="form-control col-md-10" id="correo" placeholder="" required>
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="inputPassword4">Telefono*</label>
+                    <input type="tel" class="form-control col-md-10" id="telefono" placeholder="" required>
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="inputPassword4">Fecha de Nacimiento*</label>
+                    <input type="date" class="form-control col-md-8" id="fechaNacimiento" placeholder="" required>
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="inputPassword4">Provincia*</label>
+                    <input type="text" class="form-control col-md-10" id="provincia" placeholder="" required>
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="inputPassword4">Distrito*</label>
+                    <input type="text" class="form-control col-md-8" id="distrito" placeholder="" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="inputPassword4">Dirección*</label>
+                    <input type="text" class="form-control col-md-10" id="direccion" placeholder="" required>
+                </div>
+            </div>
+        </div>
+        <br><br><br>
+        <button class="btn btn-primary col-md-3" type="submit" id="soli" onclick="confirmarCompra()">Realizar
+            Compra</button>
+        <br><br><br><br><br>
+    </article>
+
+    <script>
+
+        function validarFormulario() {
+            // Obtener los valores de los campos
+            var nombres = document.getElementById('nombres').value;
+            var apellidos = document.getElementById('apellidos').value;
+            var correo = document.getElementById('correo').value;
+            var telefono = document.getElementById('telefono').value;
+            var fechaNacimiento = document.getElementById('fechaNacimiento').value;
+            var provincia = document.getElementById('provincia').value;
+            var distrito = document.getElementById('distrito').value;
+            var direccion = document.getElementById('direccion').value;
+
+            // Validar que todos los campos estén llenos
+            if (nombres === '' || apellidos === '' || correo === '' || telefono === '' ||
+                fechaNacimiento === '' || provincia === '' || distrito === '' || direccion === '') {
+                alert('Todos los campos son obligatorios. Por favor, completa el formulario.');
+                return false;
+            }
+
+            // Validar el formato del correo
+            if (!validarFormatoCorreo(correo)) {
+                alert('El formato del correo electrónico no es válido.');
+                return false;
+            }
+
+            // Validar el formato del teléfono
+            if (!validarFormatoTelefono(telefono)) {
+                alert('El formato del teléfono no es válido. Debe empezar con 9 y tener 9 dígitos.');
+                return false;
+            }
+            return true;
+        }
+
+        // Función para validar el formato del correo
+        function validarFormatoCorreo(correo) {
+            return correo.includes('@') && correo.includes('.');
+        }
+
+        // Función para validar el formato del teléfono
+        function validarFormatoTelefono(telefono) {
+            return /^\d{9}$/.test(telefono) && telefono.startsWith('9');
+        }
+
+        function confirmarCompra() {
+            if (!validarFormulario()) {
+                // Si la validación del formulario falla, salir de la función
+                return;
+            }
+            var nombres = document.getElementById('nombres').value;
+            var apellidos = document.getElementById('apellidos').value;
+            var correo = document.getElementById('correo').value;
+            var telefono = document.getElementById('telefono').value;
+            var fechaNacimiento = document.getElementById('fechaNacimiento').value;
+            var provincia = document.getElementById('provincia').value;
+            var distrito = document.getElementById('distrito').value;
+            var direccion = document.getElementById('direccion').value;
+
+            //Calculando todas las fechas
+            var fechaActual = Date.now();
+            var fechaRegistro = new Date(fechaActual);
+            var fechaActualObj = new Date(fechaActual);
+
+            var fechaNacimientoObj = new Date(fechaNacimiento);
+            var edad = fechaActualObj.getFullYear() - fechaNacimientoObj.getFullYear();
+            // Sumamos una semana a la fecha actual
+            var fechaAproximada = new Date(fechaActual + 7 * 24 * 60 * 60 * 1000)
+
+            // Obtener la lista de pedidos del almacenamiento local
+            const arrayPedidos = JSON.parse(localStorage.getItem('arrayPedidos')) || [];
+
+            // Datos generales para cada pedido
+            const pedidoData = {
+                "nombreCliente": nombres + " " + apellidos,
+                "correoCliente": correo,
+                "telefonoCliente": telefono,
+                "edadCliente": edad,
+                "direccionCliente": "Provincia: " + provincia + " | Distrito: " + distrito + " | Direccion: " + direccion,
+                "estadoPedido": "Pedido realizado",
+                "fechaRegistro": fechaRegistro.toISOString(),
+                "fechaAproximada": fechaAproximada.toISOString(),
+                "idCliente": 1111
+            };
+
+            // Crear un nuevo array con los datos combinados
+            const arrayPedidosConDatosGenerales = arrayPedidos.map(pedido => {
+                // Crear un nuevo objeto combinando los datos de pedidoData y el pedido actual
+                const pedidoCompleto = {
+                    ...pedidoData,
+                    ...pedido
+                };
+
+                return pedidoCompleto;
+            });
+
+            console.log('Array de pedidos con datos generales:', arrayPedidosConDatosGenerales);
+
+            // Enviar los pedidos a la base de datos
+            arrayPedidosConDatosGenerales.forEach(pedido => {
+                fetch('/pedidos', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(pedido),
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        // Manejar la respuesta del servidor si es necesario
+                        console.log('Respuesta del servidor:', data);
+                        // Redirigir o mostrar un mensaje de éxito, según sea necesario
+                    })
+                    .catch(error => {
+                        // Manejar errores de la solicitud
+                        console.error('Error al enviar la solicitud:', error);
+                    });
+            });
+            alert("Se acaba de registrar tu nuevo pedido")
+            // Limpiar el arrayPedidos después de enviarlos a la base de datos
+            localStorage.removeItem('arrayPedidos');
+            window.location.href = 'index.html';
+        }
+    </script>
+
+    <footer>
+        <div class="footer-content">
+            <div class="logotipo-footer">
+                <a class="logotipo" href="index.html">Movi-Land</a>
+            </div>
+            <div class="derecho-reservado">
+                Todos los derechos reservados ©
+            </div>
+        </div>
+        <div class="grupo">
+            Grupo Web
+        </div>
+    </footer>
+    <script src="js/personaliz.js"></script>
+</body>
+
+</html>

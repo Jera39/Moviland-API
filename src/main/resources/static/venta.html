@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Venta</title>
+    <link rel="stylesheet" href="css/venta.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <!-- Font Dancing Script de Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@500&family=Dancing+Script&display=swap"
+        rel="stylesheet">
+</head>
+
+<body class="grid-container">
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark" id="prueba">
+            <div class="container-fluid">
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ">
+                        <li class="nav-item">
+                            <a class="nav-link active " href="index.html">Inicio</a>
+                        </li>
+                        <li class="nav-item" id="venta-item">
+                            <a class="nav-link active" aria-current="page" href="#">Venta</a>
+                            <!-- submenu -->
+                            <div class="submenu">
+                                <p>CATEGORÍAS:</p>
+                                <ul>
+                                    <li><a href="apple.html">• Apple</a></li>
+                                    <li><a href="huawei.html">• Huawei</a></li>
+                                    <li><a href="samsung.html">• Samsung</a></li>
+                                    <li><a href="xiaomi.html">• Xiaomi</a></li>
+                                    <li><a href="prueba.html">• Prueba-Conexion</a></li>
+                                </ul>
+                            </div>
+
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active " href="">Nosotros</a>
+                            <div class="submenu">
+                                <ul>
+                                    <li><a href="contactenos.html">• Contáctanos</a></li>
+                                    <li><a href="nosotrosh.html">• Nuestra Historia</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active " href="productos.html">Mis Pedidos</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="cuadro-logotipo">
+                    <a class="logotipo" href="index.html">Movi-Land</a>
+                </div>
+
+
+
+                <li class="d-flex" id="login">
+                    <div class="cuadro-login">
+                        <a href="" id="enlaceLogin"><svg viewBox="0 0 24 24" width="50px" height="50px" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                <g id="SVGRepo_iconCarrier">
+                                    <circle cx="12" cy="6" r="4" fill="#000000"></circle>
+                                    <ellipse opacity="0.5" cx="12" cy="17" rx="7" ry="4" fill="#000000"></ellipse>
+                                </g>
+                            </svg> Loguearme</a>
+                    </div>
+                </li>
+            </div>
+        </nav>
+    </header>
+
+
+    <aside class="content-imagen" id="imagene">
+        <br><br>
+        <img src="" alt="Imagen del Producto" style="margin-left: 20%;">
+    </aside>
+
+
+
+    <article id="cuer" class="cuer">
+        <div class="container">
+            <br>
+            <div class="content-formulario-product">
+                <div class="content-formulario-product-menu" id="tipoDeJoya">
+                </div>
+                <br><br>
+                <div class="content-formulario-product-nombre" id="nombreProducto">
+                </div>
+                <br>
+                <div class="content-formulario-product-precio" id="precioProducto">
+                </div>
+                <br>
+                <div class="content-formulario-product-description" id="descripcionProducto">
+                </div>
+                <br>
+                <div class="content-formulario-product-medidas" id="medidaProducto">
+                </div>
+                <br><br>
+                <form action="#" onsubmit="return validarCantidad()">
+                    <div class="form-group">
+                        <div>
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    CANTIDAD   
+                                </div>
+                                <div class="col-2">
+                                    <input type="number" class="form-control col-2" id="canti" value="" min="1" max=""
+                                        required>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <br><br><br><br>
+            <div class="form-row">
+                <button class="btn btn-primary col-md-4" type="submit" id="botonPersonalizar"
+                    onclick="personalizarPedido()">PERSONALIZAR
+                    PEDIDO</button>
+                <button class="btn btn-primary col-md-4" type="button" id="botonAgregarCarrito"
+                    onclick="validarCantidadYGuardarPedido()">AÑADIR AL
+                    CARRITO</button>
+            </div>
+            <br><br><br><br><br>
+    </article>
+
+
+    </div>
+    <!-- script para obtener los datos de la tienda -->
+
+    <script>
+        // Obtener elementos del DOM
+        const cantidadInput = document.getElementById('canti');
+        const nombreProductoElement = document.getElementById('nombreProducto');
+        const precioProductoElement = document.getElementById('precioProducto');
+        const imagenElement = document.querySelector('.content-imagen img');
+        const descripcionProductoElement = document.getElementById('descripcionProducto');
+        const medidaProductoElement = document.getElementById('medidaProducto');
+        const tipoDeJoyaElement = document.getElementById('tipoDeJoya');
+
+        // Recuperar información del producto del almacenamiento local
+        const nombreProducto = localStorage.getItem('nombreProducto');
+        const precioProducto = parseFloat(localStorage.getItem('precioProducto'));
+        const nombreImagen = localStorage.getItem('nombreImagen');
+        const descripcionProducto = localStorage.getItem('descripcionProducto');
+        const medidaProducto = localStorage.getItem('medidaProducto');
+        const tipoDeJoya = localStorage.getItem('tipoProducto');
+
+        // Llenar la información en la página de venta
+        nombreProductoElement.innerText = nombreProducto;
+        precioProductoElement.innerText = "S/. " + precioProducto.toFixed(2);
+        imagenElement.src = nombreImagen;
+        descripcionProductoElement.innerText = descripcionProducto;
+        medidaProductoElement.innerText = "Medidas: " + medidaProducto + "cm";
+        tipoDeJoyaElement.innerText = "JOYERIA / CATEGORIA / " + tipoDeJoya;
+
+        // Función para validar la cantidad y guardar el pedido
+        function validarCantidadYGuardarPedido() {
+            const cantidadSeleccionada = parseInt(cantidadInput.value, 10);
+            const stockDisponible = parseInt(localStorage.getItem('stockProducto'), 10);
+
+            if (isNaN(cantidadSeleccionada) || cantidadSeleccionada < 1) {
+                alert("La cantidad seleccionada no es válida.");
+                return false;
+            }
+
+            if (cantidadSeleccionada > stockDisponible) {
+                alert("No hay suficiente stock disponible. Por favor, elija una cantidad menor o igual a " + stockDisponible + ".");
+                return false;
+            }
+
+            console.log('Cantidad seleccionada:', cantidadSeleccionada);
+            console.log('Precio del producto:', precioProducto);
+
+            // Crear un objeto con la información del pedido actual
+            const pedidoActual = {
+                "imagen": nombreImagen,
+                "nombrePedido": nombreProducto,
+                "cantidad": cantidadSeleccionada,
+                "precio": precioProducto,
+                "descripcion": descripcionProducto,
+                "tipo": tipoDeJoya
+            };
+
+            // Recuperar la lista actualizada de pedidos del almacenamiento local
+            const arrayPedidos = JSON.parse(localStorage.getItem('arrayPedidos')) || [];
+
+            // Agregar el pedido actual a la lista de pedidos
+            arrayPedidos.push(pedidoActual);
+
+            // Guardar la lista actualizada de pedidos en el almacenamiento local
+            localStorage.setItem('arrayPedidos', JSON.stringify(arrayPedidos));
+
+            console.log('Datos del pedido guardados:', arrayPedidos);
+
+            // Redirigir a la página del carrito
+            window.location.href = 'carrito.html';
+
+            return true;
+        }
+        // Función para redirigir a la página de personalización
+        function personalizarPedido() {
+            window.location.href = 'personalizacion.html';
+        }
+    </script>
+
+
+
+    <!-- fin de los scripts -->
+
+
+
+    <footer>
+        <div class="footer-content">
+            <div class="logotipo-footer">
+                <a class="logotipo" href="index.html">Movi-Land</a>
+            </div>
+            <div class="derecho-reservado">
+                Todos los derechos reservados ©
+            </div>
+        </div>
+        <div class="grupo">
+            Grupo Web
+        </div>
+    </footer>
+</body>
+
+</html>

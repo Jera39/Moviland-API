@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Venta</title>
+    <link rel="stylesheet" href="css/carrito.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <!-- Font Dancing Script de Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@500&family=Dancing+Script&display=swap"
+        rel="stylesheet">
+</head>
+
+<body class="grid-container">
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark" id="prueba">
+            <div class="container-fluid">
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ">
+                        <li class="nav-item">
+                            <a class="nav-link active " href="index.html">Inicio</a>
+                        </li>
+                        <li class="nav-item" id="venta-item">
+                            <a class="nav-link active" aria-current="page" href="#">Venta</a>
+                            <!-- submenu -->
+                            <div class="submenu">
+                                <p>CATEGORÍAS:</p>
+                                <ul>
+                                    <li><a href="apple.html">• Apple</a></li>
+                                    <li><a href="huawei.html">• Huawei</a></li>
+                                    <li><a href="samsung.html">• Samsung</a></li>
+                                    <li><a href="xiaomi.html">• Xiaomi</a></li>
+                                    <li><a href="prueba.html">• Prueba-Conexion</a></li>
+                                </ul>
+                            </div>
+
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active " href="">Nosotros</a>
+                            <div class="submenu">
+                                <ul>
+                                    <li><a href="contactenos.html">• Contáctanos</a></li>
+                                    <li><a href="nosotrosh.html">• Nuestra Historia</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active " href="productos.html">Mis Pedidos</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="cuadro-logotipo">
+                    <a class="logotipo" href="index.html">Movi-Land</a>
+                </div>
+
+
+
+                <li class="d-flex" id="login">
+                    <div class="cuadro-login">
+                        <a href="" id="enlaceLogin"><svg viewBox="0 0 24 24" width="50px" height="50px" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                <g id="SVGRepo_iconCarrier">
+                                    <circle cx="12" cy="6" r="4" fill="#000000"></circle>
+                                    <ellipse opacity="0.5" cx="12" cy="17" rx="7" ry="4" fill="#000000"></ellipse>
+                                </g>
+                            </svg> Loguearme</a>
+                    </div>
+                </li>
+            </div>
+        </nav>
+    </header>
+    <main class="content">
+
+        <div class="content-menu">
+            <div id="tipoDeJoya">
+
+            </div>
+        </div>
+        <table class="content-tabla">
+            <thead>
+                <tr class="content-tabla-producto">
+                    <th class="content-tabla-titulo">PRODUCTO</th>
+                    <th class="content-tabla-titulo">DESCRIPCIÓN</th>
+                    <th class="content-tabla-titulo">CANTIDAD</th>
+                    <th class="content-tabla-titulo">SUBTOTAL</th>
+                    <th class="content-tabla-titulo"></th>
+                </tr>
+            </thead>
+            <tbody id="tbodyProductos">
+
+            </tbody>
+        </table>
+
+        <div class="content-total">
+            <div class="content-total-text">
+                TOTAL A PAGAR:
+            </div>
+            <div class="content-total-num" id="operacion-total-final">
+
+            </div>
+
+        </div>
+
+        <div class="content-boton">
+            <div class="content-boton-left" onclick="continuarComprando()">
+                CONTINUAR COMPRANDO
+            </div>
+            <div class="content-boton-right" onclick="confirmarCompra()">
+                PAGAR
+            </div>
+
+        </div>
+    </main>
+
+
+    <!-- script para obtener los datos de la tienda -->
+
+    <script>
+        // Recuperar la información del producto del almacenamiento local
+        var nombrePedido = localStorage.getItem('nombrePedido');
+        var precio = localStorage.getItem('precio');
+        var imagen = localStorage.getItem('imagen');
+        var descripcion = localStorage.getItem('descripcion');
+        var medidaProducto = localStorage.getItem('medidaProducto');
+        var tipoDeJoya = localStorage.getItem('tipoProducto');
+        var cantidad = localStorage.getItem("cantidad");
+
+        // Función para cargar y mostrar los pedidos
+        function cargarYMostrarPedidos() {
+            // Recuperar la información de los productos del almacenamiento local
+            var arrayPedidos = JSON.parse(localStorage.getItem('arrayPedidos')) || [];
+
+            // Limpiar la tabla antes de agregar filas
+            var tbodyProductos = document.getElementById("tbodyProductos");
+            tbodyProductos.innerHTML = "";
+
+            // Iterar sobre los pedidos y agregarlos a la tabla
+            arrayPedidos.forEach(function (pedido, index) {
+                // Verificar qué se está intentando agregar
+                console.log('Agregando pedido:', pedido);
+
+                // Intentar agregar la fila
+                crearFila(pedido, index);
+            });
+
+            // Actualizar el total después de cargar los pedidos
+            actualizarTotal();
+        }
+
+
+        // Función para crear una nueva fila en la tabla
+        function crearFila(pedido) {
+            var nuevaFila = document.createElement("tr");
+            nuevaFila.classList.add("content-tabla-producto");
+
+            nuevaFila.innerHTML = `
+                <td class="content-tabla-producto-imagen">
+                    <img src="${pedido.imagen}" alt="Imagen del Producto">
+                </td>
+                <td class="content-tabla-description-joya">${pedido.nombrePedido}</td>
+                <td class="content-tabla-cantidad-joya">${pedido.cantidad}</td>
+                <td class="content-tabla-subtotal-joya">${pedido.cantidad * pedido.precio}</td>
+                <td class="content-tabla-producto-imagen">
+        <div class="eliminar-pedido" id="svg-container">
+            <svg class="svg-content" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink" width="256px" height="256px" viewBox="0 0 488.936 488.936"
+                xml:space="preserve">
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                <g id="SVGRepo_iconCarrier">
+                    <g>
+                        <g>
+                            <path
+                                d="M381.16,111.948H107.376c-6.468,0-12.667,2.819-17.171,7.457c-4.504,4.649-6.934,11.014-6.738,17.477l9.323,307.69 c0.39,12.92,10.972,23.312,23.903,23.312h20.136v-21.012c0-24.121,19.368-44.049,43.488-44.049h127.896 c24.131,0,43.893,19.928,43.893,44.049v21.012h19.73c12.933,0,23.52-10.346,23.913-23.268l9.314-307.7 c0.195-6.462-2.234-12.863-6.738-17.513C393.821,114.767,387.634,111.948,381.16,111.948z">
+                            </path>
+                            <path
+                                d="M309.166,435.355H181.271c-6.163,0-11.915,4.383-11.915,11.516v30.969c0,6.672,5.342,11.096,11.915,11.096h127.895 c6.323,0,11.366-4.773,11.366-11.096v-30.969C320.532,440.561,315.489,435.355,309.166,435.355z">
+                            </path>
+                            <path
+                                d="M427.696,27.106C427.696,12.138,415.563,0,400.591,0H88.344C73.372,0,61.239,12.138,61.239,27.106v30.946 c0,14.973,12.133,27.106,27.105,27.106H400.59c14.973,0,27.105-12.133,27.105-27.106L427.696,27.106L427.696,27.106z">
+                            </path>
+                        </g>
+                    </g>
+                </g>
+            </svg>
+        </div>
+    </td>
+                
+            `;
+
+            document.getElementById("tbodyProductos").appendChild(nuevaFila);
+
+            // Agregar evento de clic al botón de eliminar en esta fila
+            var botonEliminar = nuevaFila.querySelector('.eliminar-pedido');
+            botonEliminar.addEventListener('click', function () {
+                eliminarPedido(index);
+            });
+        }
+
+        // Función para actualizar el total
+        function actualizarTotal() {
+            // Recuperar la información de los productos del almacenamiento local
+            var arrayPedidos = JSON.parse(localStorage.getItem('arrayPedidos')) || [];
+
+            // Calcular el total sumando los subtotales de todos los elementos en el array
+            var nuevoTotal = arrayPedidos.reduce(function (total, pedido) {
+                return total + parseFloat(pedido.precio);
+            }, 0);
+
+            // Actualizar el elemento en la página
+            document.getElementById("operacion-total-final").textContent = " S/." + (nuevoTotal.toFixed(2));
+
+            console.log("Nuevo Total:", nuevoTotal.toFixed(2));
+        }
+
+        // Llamar a la función de carga y muestra de pedidos al cargar la página
+        cargarYMostrarPedidos();
+
+        // Llamar a la función para actualizar el total
+        actualizarTotal();
+
+        // Función para eliminar un pedido
+        function eliminarPedido(index) {
+            // Recuperar la lista actualizada de pedidos del almacenamiento local
+            var arrayPedidos = JSON.parse(localStorage.getItem('arrayPedidos')) || [];
+
+            // Eliminar el pedido en el índice especificado
+            arrayPedidos.splice(index, 1);
+
+            // Guardar la lista actualizada de pedidos en el almacenamiento local
+            localStorage.setItem('arrayPedidos', JSON.stringify(arrayPedidos));
+
+            // Recargar y mostrar los pedidos actualizados después de un breve retraso
+            setTimeout(function () {
+                cargarYMostrarPedidos();
+                actualizarTotal();
+            }, 50);
+        }
+
+        // Agregar evento de clic al botón de eliminar en cada fila
+        function agregarEventosEliminar() {
+            var botonesEliminar = document.querySelectorAll('.eliminar-pedido');
+
+            botonesEliminar.forEach(function (boton, index) {
+                boton.addEventListener('click', function () {
+                    eliminarPedido(index);
+                });
+            });
+        }
+
+        // Llamar a la función para agregar eventos de eliminar
+        agregarEventosEliminar();
+
+        // Función para continuar comprando
+        function continuarComprando() {
+            window.location.href = 'index.html';
+        }
+
+        // Función para confirmar la compra
+        function confirmarCompra() {
+            window.location.href = 'confirmarCarrito.html';
+        }
+
+    </script>
+
+
+
+
+
+
+    <!-- fin de los scripts -->
+
+    <footer>
+        <div class="footer-content">
+            <div class="logotipo-footer">
+                <a class="logotipo" href="index.html">Movi-Land</a>
+            </div>
+            <div class="derecho-reservado">
+                Todos los derechos reservados ©
+            </div>
+        </div>
+        <div class="grupo">
+            Grupo Web
+        </div>
+    </footer>
+</body>
+
+</html>
