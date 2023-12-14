@@ -23,13 +23,27 @@ function realizarLogin(event) {
     })
     .then(data => {
         if(data){
-            window.location.href = "index.html";
-            console.log('Usuario autenticado:', data);
+            return fetch(`http://localhost:8085/api/v1/moviland/user/${correo}`);
         }else{
             alert('¡error!');
             console.log('Usuario autenticado:', data);
         }
        
+        
+    })
+    .then(response => response.json())
+    .then(usuario => {
+        localStorage.setItem('nombreUsuario', usuario.nombre);
+        localStorage.setItem('correoUsuario', usuario.correo);
+        console.log(usuario.nombre)
+        console.log(usuario,correo)
+        const expireDate = new Date();
+        expireDate.setTime(expireDate.getTime() + (24 * 60 * 60 * 1000));
+
+        document.cookie = `nombreUsuario=${usuario.nombre}; expires=${expireDate.toUTCString()}; path=/`;
+        console.log('Usuario autenticado:', usuario);
+        window.location.href = "index.html";
+
         
     })
     .catch(error => {
