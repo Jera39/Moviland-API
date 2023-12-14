@@ -118,7 +118,7 @@
                     <td id="almacenamiento">${pedido.almacenamiento}</td>
                     <td id="imagen">${pedido.imagen}</td>
                     <td id="precio">${pedido.precio}</td>
-                    <td><svg viewBox="0 0 24 24" fill="#000000" xmlns="http://www.w3.org/2000/svg" onclick="guardarDatos()"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g id="style=fill"> <g id="edit"> <path id="Subtract" fill-rule="evenodd" clip-rule="evenodd" d="M18.9405 3.12087L21.0618 5.24219C22.2334 6.41376 22.2334 8.31326 21.0618 9.48483L19.2586 11.288L12.8947 4.92403L14.6978 3.12087C15.8694 1.94929 17.7689 1.94929 18.9405 3.12087ZM11.834 5.98469L3.70656 14.1121C3.22329 14.5954 2.91952 15.2292 2.84552 15.9086L2.45151 19.5264C2.31313 20.7969 3.38571 21.8695 4.65629 21.7311L8.27401 21.3371C8.95345 21.2631 9.58725 20.9594 10.0705 20.4761L18.1979 12.3486L11.834 5.98469Z" fill="#000000"></path> </g> </g> </g></svg>
+                    <td><svg viewBox="0 0 24 24" fill="#000000" xmlns="http://www.w3.org/2000/svg" onclick="guardarDatos(${pedido.id})"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g id="style=fill"> <g id="edit"> <path id="Subtract" fill-rule="evenodd" clip-rule="evenodd" d="M18.9405 3.12087L21.0618 5.24219C22.2334 6.41376 22.2334 8.31326 21.0618 9.48483L19.2586 11.288L12.8947 4.92403L14.6978 3.12087C15.8694 1.94929 17.7689 1.94929 18.9405 3.12087ZM11.834 5.98469L3.70656 14.1121C3.22329 14.5954 2.91952 15.2292 2.84552 15.9086L2.45151 19.5264C2.31313 20.7969 3.38571 21.8695 4.65629 21.7311L8.27401 21.3371C8.95345 21.2631 9.58725 20.9594 10.0705 20.4761L18.1979 12.3486L11.834 5.98469Z" fill="#000000"></path> </g> </g> </g></svg>
                     </td>
                     <td><svg fill="#000000" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" onclick="eliminarPedido(${pedido.id})"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M17,4V5H15V4H9V5H7V4A2,2,0,0,1,9,2h6A2,2,0,0,1,17,4Z"></path><path d="M20,6H4A1,1,0,0,0,4,8H5.07l.87,12.14a2,2,0,0,0,2,1.86h8.14a2,2,0,0,0,2-1.86L18.93,8H20a1,1,0,0,0,0-2ZM13,17a1,1,0,0,1-2,0V11a1,1,0,0,1,2,0Z"></path></g></svg>                      
                     </td>
@@ -155,11 +155,14 @@
                 .catch(error => console.error('Error al eliminar el producto:', error));
         }
 
-        function guardarDatos() {
+        function guardarDatos(id) {
+
+            let eliminar = id;
+
             const filaSeleccionada = document.querySelector('.pedido-row.selected');
 
             if (filaSeleccionada) {
-                const id = filaSeleccionada.getAttribute('data-id');
+                const idCel = filaSeleccionada.getAttribute('data-id');
                 const marca = filaSeleccionada.querySelector('#marca').innerText;
                 const nombre = filaSeleccionada.querySelector('#nombre').innerText;
                 const stock = filaSeleccionada.querySelector('#stock').innerText;
@@ -173,7 +176,7 @@
 
                 // Crear un objeto con los datos de la fila
                 const datosFila = {
-                    id: id,
+                    id: idCel,
                     marca: marca,
                     nombre: nombre,
                     stock: stock,
@@ -202,6 +205,7 @@
 
                 alert('Datos de la fila guardados localmente.');
                 console.log(datosFila);
+                eliminarPedido(id);
                 window.location.href = 'editar.html';
             } else {
                 alert('Selecciona una fila antes de guardar los datos.');

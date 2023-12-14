@@ -111,7 +111,7 @@
             </div>
             <br><br><br><br><br>
             <button class="btn btn-primary col-md-3" type="submit" id="soli"
-                style="background-color: rgb(22, 22, 22); border: none;">Agregar Nuevo Celular</button>
+                style="background-color: rgb(22, 22, 22); border: none;">Actualizar Celular</button>
 
             <BR><BR><BR>
             <br><br><br><br>
@@ -121,9 +121,11 @@
     <!-- script para guardar los datos del nuevo celular en la base de datos -->
 
     <script>
+        let idCelular;
         document.addEventListener("DOMContentLoaded", function () {
             // Obtener los datos del pedido almacenados localmente
             const pedidoEditar = JSON.parse(localStorage.getItem('datosGuardados'))[0];
+            idCelular = pedidoEditar.id;
 
             // Rellenar los campos del formulario con los datos del pedido
             document.getElementById('marca').value = pedidoEditar.marca;
@@ -160,6 +162,7 @@
 
             // Construir el objeto con los datos del formulario
             var nuevoCelular = {
+                "id": idCelular,
                 "marca": marca,
                 "nombre": nombre,
                 "stock": stock,
@@ -171,11 +174,11 @@
                 "imagen": imagen,
                 "precio": precio,
                 // Añadir el estado si es necesario
-                // "estado": true
+                "estado": true
             };
 
             // Enviar la solicitud POST al backend
-            fetch('/api/v1/moviland/celular/{id}', {
+            fetch('/api/v1/moviland/celular', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
