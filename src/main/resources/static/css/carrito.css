@@ -1,0 +1,397 @@
+@import url("https://fonts.googleapis.com/css?family=Trirong");
+
+body {
+    margin: 0;
+    padding: 70px 0px 0px 0px;
+    background-size: 100% 100%;
+    background-position: center;
+}
+
+/* toda la parte del nav */
+
+nav {
+    background-color: #000000;
+    /*  #f2bb5b */
+    font-size: 18px;
+    position: fixed !important;
+    width: 100%;
+    /* Ancho completo */
+    top: 0;
+    /* Colocar en la parte superior */
+    z-index: 1000;
+}
+
+.navbar {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logotipo {
+    font-size: 71px !important;
+    font-family: 'Dancing Script', cursive;
+    display: flex;
+    text-decoration: none;
+    color: #ffff;
+    margin: -20px;
+}
+
+.cuadro-logotipo {
+    position: absolute;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.container-fluid {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+#login {
+    margin-right: 3%;
+}
+
+.cuadro-login {
+    background-color: #ffff;
+    width: 200px;
+    border-radius: 30px;
+    margin: 5px 0px;
+
+}
+
+.cuadro-login a {
+    text-decoration: none;
+    color: #000000;
+    /*  #f2bb5b */
+    font-weight: bold;
+}
+
+.cuadro-login svg {
+    margin: 5px 10px;
+}
+
+.nav-item {
+    margin: 1px 5px;
+
+}
+
+.nav-item:hover {
+    border-bottom: 2px solid #ffffff;
+    margin: 0px 5px;
+}
+
+/* Personalizacion del submenu */
+
+.submenu {
+    display: none;
+    position: absolute;
+    background-color: white;
+    border: 1px solid #000000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    z-index: 2;
+    font-family: 'Times New Roman', Times, serif;
+    line-height: 40px;
+}
+
+.submenu p {
+    font-weight: bold;
+    text-decoration: underline;
+    margin: 10px 20px;
+}
+
+.submenu ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 10px 20px;
+
+}
+
+.submenu li {
+    margin: 5px 0px 0px 10px;
+}
+
+.submenu li:hover {
+    transform: scale(1.2);
+}
+
+.submenu a {
+    text-decoration: none;
+    color: #000000;
+}
+
+.submenu a:hover {
+    color: #f2bb5b;
+}
+
+.nav-item:hover .submenu {
+    display: block;
+}
+
+/* fin de la personalizacion del submenu */
+
+.content {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-content: center;
+    align-items: center;
+    padding: 2%;
+
+}
+
+.content-menu {
+    align-items: center;
+    font-family: 'Cormorant', serif;
+    font-size: 22px;
+    margin: 20px 0px;
+}
+
+.content-tabla {
+    justify-content: center;
+
+}
+
+.content-tabla-producto {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1.3fr 0.5fr;
+    justify-content: center;
+
+}
+
+.content-tabla-titulo {
+    display: flex;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 25px;
+    font-weight: bold;
+    margin: 20px;
+    justify-content: center;
+}
+
+.content-tabla-producto-imagen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+}
+
+.content-tabla-producto-imagen img {
+    width: 50%;
+    height: auto;
+    align-items: center;
+}
+
+.content-tabla-description {
+    display: grid;
+    grid-template-columns: repeat(1fr);
+    justify-content: center;
+
+}
+
+.content-tabla-description-joya {
+    display: flex;
+    align-items: center;
+    font-family: 'Cormorant', serif;
+    font-size: 25px;
+    margin: 20px 0px;
+    text-align: center;
+    justify-content: center;
+}
+
+.content-tabla-cantidad {
+    display: grid;
+    grid-template-columns: repeat(1fr);
+    justify-content: center;
+
+}
+
+.content-tabla-cantidad-joya {
+    display: flex;
+    align-items: center;
+    font-family: 'Cormorant', serif;
+    font-size: 25px;
+    margin: 20px 0px;
+    text-align: center;
+    justify-content: center;
+}
+
+.content-tabla-subtotal {
+    display: grid;
+    grid-template-columns: repeat(1fr);
+    justify-content: center;
+    text-align: center;
+}
+
+.content-tabla-subtotal-joya {
+    display: flex;
+    align-items: center;
+    font-family: 'Cormorant', serif;
+    font-size: 25px;
+    margin: 20px 0px;
+    text-align: center;
+    justify-content: center;
+}
+
+.content-total {
+    display: flex;
+    justify-content: right;
+    padding-right: 25%;
+    padding-top: 2%;
+    margin: 6%;
+    border-top: 2px solid #000000;
+}
+
+.content-total-text {
+    align-items: center;
+    font-family: 'Cormorant', serif;
+    font-size: 25px;
+    margin: 20px 10px;
+    text-align: center;
+}
+
+.content-boton {
+    display: flex;
+    margin: 5%;
+    padding: 0px 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.content-boton-left {
+    display: flex;
+    height: 90px;
+    width: 400px;
+    background-color: rgba(184, 97, 37, 1);
+    color: #ffffff;
+    margin: 10px 100px;
+    padding: 20px;
+    border-radius: 1rem;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    font-size: 20px;
+}
+
+.content-boton-right {
+    display: flex;
+    height: 90px;
+    width: 400px;
+    background-color: rgba(184, 97, 37, 1);
+    color: #ffffff;
+    margin: 10px 100px;
+    padding: 20px;
+    border-radius: 1rem;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    font-size: 20px;
+}
+
+.content-boton-right:hover {
+    background-color: #000000;
+}
+
+.content-boton-left:hover {
+    background-color: #000000;
+}
+
+.content-total-num {
+    align-items: center;
+    font-family: 'Cormorant', serif;
+    font-size: 25px;
+    margin: 20px 10px;
+    text-align: center;
+}
+
+.content-formulario-product-precio {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 25px;
+    margin: 10px 0px 20px;
+    color: rgb(202, 102, 34);
+}
+
+.content-formulario-product-description {
+    font-family: 'Cormorant', serif;
+    font-size: 25px;
+    margin: 20px 0px;
+}
+
+.content-formulario-product-medidas {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 25px;
+}
+
+/* estilo del svg */
+
+#svg-container {
+    display: flex;
+    align-items: center;
+}
+
+.svg-content {
+    display: flex;
+    fill: #ffffff;
+    transition: fill 0.3s;
+    width: 50%;
+    height: auto;
+    align-items: center;
+}
+
+/* #svg-container:hover { */
+.svg-content:hover {
+    fill: #c04f04;
+}
+
+/* #svg-container:active { */
+.svg-content:active {
+    fill: #000000;
+}
+
+
+/* Estilizado completo del Footer */
+
+footer {
+    position: relative;
+    display: flex;
+    background: #000000;
+    justify-content: center;
+    color: #ffffff;
+    margin-top: 5%;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-content: center;
+
+    margin: 30px;
+    align-items: center;
+}
+
+.logotipo-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    font-weight: bold;
+}
+
+.grupo {
+    position: absolute;
+    top: 39%;
+    right: 3%;
+    font-size: 45px;
+    font-family: 'Dancing Script', cursive;
+    font-weight: bold;
+}
+
+.derecho-reservado {
+    font-size: 20px;
+    letter-spacing: 1px;
+    padding-top: 20px;
+}

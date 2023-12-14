@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio</title>
+    <link rel="stylesheet" href="index.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <!-- Font Dancing Script de Google Fonts -->
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet"> -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant:wght@500&family=Dancing+Script&family=Oooh+Baby&family=Splash&display=swap"
+        rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@500&family=Dancing+Script&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark" id="prueba">
+            <div class="container-fluid">
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ">
+                        <li class="nav-item">
+                            <a class="nav-link active " href="index.html">Inicio</a>
+                        </li>
+                        <li class="nav-item" id="venta-item">
+                            <a class="nav-link active" aria-current="page" href="#">Venta</a>
+                            <!-- submenu -->
+                            <div class="submenu">
+                                <p>CATEGORÍAS:</p>
+                                <ul>
+                                    <li><a href="apple.html">• Apple</a></li>
+                                    <li><a href="huawei.html">• Huawei</a></li>
+                                    <li><a href="samsung.html">• Samsung</a></li>
+                                    <li><a href="xiaomi.html">• Xiaomi</a></li>
+                                    <li><a href="prueba.html">• Prueba-Conexion</a></li>
+                                </ul>
+                            </div>
+
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active " href="">Nosotros</a>
+                            <div class="submenu">
+                                <ul>
+                                    <li><a href="contactenos.html">• Contáctanos</a></li>
+                                    <li><a href="nosotrosh.html">• Nuestra Historia</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active " href="productos.html">Mis Pedidos</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="cuadro-logotipo">
+                    <a class="logotipo" href="index.html">Movi-Land</a>
+                </div>
+
+
+
+                <li class="d-flex" id="login">
+                    <div class="cuadro-login">
+                        <a href="" id="enlaceLogin"><svg viewBox="0 0 24 24" width="50px" height="50px" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                <g id="SVGRepo_iconCarrier">
+                                    <circle cx="12" cy="6" r="4" fill="#000000"></circle>
+                                    <ellipse opacity="0.5" cx="12" cy="17" rx="7" ry="4" fill="#000000"></ellipse>
+                                </g>
+                            </svg> Loguearme</a>
+                    </div>
+                </li>
+            </div>
+        </nav>
+    </header>
+    <script>
+        // Obtener referencia al enlace de login
+        var enlaceLogin = document.getElementById('enlaceLogin');
+
+        // Agregar un event listener para redirigir al hacer clic
+        enlaceLogin.addEventListener('click', function () {
+            // Redirigir a la página login.php
+            window.location.href = 'login.php';
+        });
+    </script>
+    <main>
+        <div class="fondo-inicio">
+            <div class="texto-inicio">
+                Vive conectado, Elige lo mejor...
+            </div>
+        </div>
+        <div class="content-eslogan">
+            5 años iluminando tus Navidades con lo último en tecnología.
+        </div>
+        <div class="content-titulo">
+            LOS  ULTIMOS  MODELOS
+        </div>
+        <div class="content-muestra">
+            <div class="content-muestra-anillos">
+                <div class="muestra-anillos-imagen">
+                    <img src="img/inicio/HUAWEI-P40-Pro.png" alt="">
+                </div>
+                <div class="muestra-anillos-nombre">
+                    HUAWEI P40 Pro
+                </div>
+                <div class="muestra-anillos-estrellas">
+                    <img src="img/index/5estrellas.png" alt="">
+                </div>
+                <div class="muestra-anillos-precio">
+                    De S/. 2,320.00
+                </div>
+            </div>
+            <div class="content-muestra-anillos">
+                <div class="muestra-anillos-imagen">
+                    <img src="img/inicio/iphone-15.png" alt="">
+                </div>
+                <div class="muestra-anillos-nombre">
+                    iPhone 15
+                </div>
+                <div class="muestra-anillos-estrellas">
+                    <img src="img/index/5estrellas.png" alt="">
+                </div>
+                <div class="muestra-anillos-precio">
+                    De S/. 3,599.00
+                </div>
+            </div>
+            <div class="content-muestra-anillos">
+                <div class="muestra-anillos-imagen">
+                    <img src="img/inicio/samsung-galaxy-s20.png" alt="">
+                </div>
+                <div class="muestra-anillos-nombre">
+                    Samsung S20
+                </div>
+                <div class="muestra-anillos-estrellas">
+                    <img src="img/index/5estrellas.png" alt="">
+                </div>
+                <div class="muestra-anillos-precio">
+                    De S/. 2,469.00
+                </div>
+            </div>
+        </div>
+
+        <div class="content-muestra-bloques">
+            <div class="content-muestra-pasos">
+                <div class="muestra-pasos-imagen">
+                    <img src="img/index/paso1.jpg" alt="">
+                </div>
+                <div class="muestra-pasos-nombre">
+                    1.- ESCOGE EL CELULAR QUE TE GUSTE
+                </div>
+            </div>
+            <div class="content-muestra-pasos">
+                <div class="muestra-pasos-imagen">
+                    <img src="img/index/paso2.jpeg" alt="">
+                </div>
+                <div class="muestra-pasos-nombre">
+                    2.- HAZ TU PEDIDO
+                </div>
+            </div>
+            <div class="content-muestra-pasos">
+                <div class="muestra-pasos-imagen">
+                    <img src="img/inicio/tercer-paso.jpg" alt="">
+                </div>
+                <div class="muestra-pasos-nombre">
+                    3.- ¡DISFRUTA TU NAVIDAD DIGITAL!
+                </div>
+            </div>
+        </div>
+
+        <div class="content-titulo">
+            ELIGE UNA MARCA
+        </div>
+
+        <div class="categoria">
+            <div class="categoria-joya">
+                <a href="collares.html">
+                    <div class="categoria-joya-imagen">
+                        <img src="img/inicio/iphone.png" alt="">
+                        <div class="categoria-joya-tipo">
+                            iPhone
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="categoria-joya">
+                <a href="anillos.html">
+                    <div class="categoria-joya-imagen">
+                        <img src="img/inicio/huawei.png" alt="">
+                        <div class="categoria-joya-tipo">
+                            Huawei
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="categoria-joya">
+                <a href="aretes.html">
+                    <div class="categoria-joya-imagen">
+                        <img src="img/inicio/samsung.png" alt="">
+                        <div class="categoria-joya-tipo">
+                            Samsung
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="categoria-joya">
+                <a href="personalizacion.html">
+                    <div class="categoria-joya-imagen">
+                        <img src="img/inicio/xiaomi.png" alt="">
+                        <div class="categoria-joya-tipo">
+                            Xiaomi
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="content-tipojoyas">
+
+        </div>
+
+        <div class="content-final">
+            <div class="content-final-izquierdo">
+                <img src="img/inicio/content-final.iz.png" alt="">
+            </div>
+            <div class="content-final-derecho">
+                <div class="content-titulo">
+                    GARANTÍA DE 3 AÑOS
+                </div>
+                <div class="content-final-derecho-texto">
+                    Mantenemos tu conexión perfecta y tus dispositivos en su mejor estado. ¡Garantía de servicio sin preocupaciones por tres años!
+                </div>
+                <div class="content-final-derecho-imagen">
+                    <img src="img/inicio/content-final.der.png" alt="">
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="logotipo-footer">
+                <a class="logotipo" href="index.html">Movi-Land</a>
+            </div>
+            <div class="derecho-reservado">
+                Todos los derechos reservados ©
+            </div>
+        </div>
+        <div class="grupo">
+            Grupo Web
+        </div>
+    </footer>
+</body>
+
+</html>

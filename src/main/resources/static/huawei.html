@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anillos</title>
+    <link rel="stylesheet" href="css/anillos.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <!-- Font Dancing Script de Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@500&family=Dancing+Script&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark" id="prueba">
+            <div class="container-fluid">
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ">
+                        <li class="nav-item">
+                            <a class="nav-link active " href="index.html">Inicio</a>
+                        </li>
+                        <li class="nav-item" id="venta-item">
+                            <a class="nav-link active" aria-current="page" href="#">Venta</a>
+                            <!-- submenu -->
+                            <div class="submenu">
+                                <p>CATEGORÍAS:</p>
+                                <ul>
+                                    <li><a href="apple.html">• Apple</a></li>
+                                    <li><a href="huawei.html">• Huawei</a></li>
+                                    <li><a href="samsung.html">• Samsung</a></li>
+                                    <li><a href="xiaomi.html">• Xiaomi</a></li>
+                                    <li><a href="prueba.html">• Prueba-Conexion</a></li>
+                                </ul>
+                            </div>
+
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active " href="">Nosotros</a>
+                            <div class="submenu">
+                                <ul>
+                                    <li><a href="contactenos.html">• Contáctanos</a></li>
+                                    <li><a href="nosotrosh.html">• Nuestra Historia</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active " href="productos.html">Mis Pedidos</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="cuadro-logotipo">
+                    <a class="logotipo" href="index.html">Movi-Land</a>
+                </div>
+
+
+
+                <li class="d-flex" id="login">
+                    <div class="cuadro-login">
+                        <a href="" id="enlaceLogin"><svg viewBox="0 0 24 24" width="50px" height="50px" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                <g id="SVGRepo_iconCarrier">
+                                    <circle cx="12" cy="6" r="4" fill="#000000"></circle>
+                                    <ellipse opacity="0.5" cx="12" cy="17" rx="7" ry="4" fill="#000000"></ellipse>
+                                </g>
+                            </svg> Loguearme</a>
+                    </div>
+                </li>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="fondo-inicio">
+            <div class="fondo-inicio-texto">
+                <div class="fondo-inicio-texto-menu">
+                    CELULARES / HUAWEI
+                </div>
+                <div class="fondo-inicio-texto-categoria">
+                    Huawei
+                </div>
+                <div class="fondo-inicio-texto-descripcion">
+                    Inspira tu mundo con Huawei, elegancia y rendimiento excepcionales.
+                </div>
+            </div>
+        </div>
+        <div class="contenido">
+            <div class="content-muestra" id="joyas-container">
+
+            </div>
+            <script>
+                // Obtener las joyas desde el servidor
+                fetch('/joyas')
+                    .then(response => response.json())
+                    .then(joyas => {
+                        // Filtrar las joyas del tipo "pendiente"
+                        const tipoDeJoya = joyas.filter(joya => joya.tipo === 'anillo');
+
+                        // Llenar dinámicamente el contenedor de joyas
+                        const joyasContainer = document.getElementById('joyas-container');
+                        tipoDeJoya.forEach(joya => {
+                            const joyaElement = document.createElement('div');
+                            joyaElement.classList.add('muestra-aretes');
+
+                            joyaElement.innerHTML = `
+                            <a href="venta.html" onclick="guardarInformacionProducto(this)">
+                                <div id="${joya.id}" class="content-muestra-aretes">
+                                <div class="muestra-aretes-imagen">
+                                        <img src="https://drive.google.com/uc?export=view&id=${joya.imagen}" alt="">
+                                    </div>
+                                    <div class="muestra-aretes-nombre">${joya.nombre}</div>
+                                    <div class="muestra-aretes-precio">${joya.precio}</div>
+                                    <div class="muestra-aretes-descripcion">${joya.descripcion}</div>
+                                    <div class="muestra-aretes-medida">${joya.medida}</div>
+                                    <div class="muestra-aretes-stock">${joya.stock}</div>
+                                </div>
+                            </a>
+                            `;
+
+                            joyasContainer.appendChild(joyaElement);
+                        });
+                    })
+                    .catch(error => console.error('Error al obtener joyas:', error));
+            </script>
+        </div>
+    </main>
+
+    <!-- Los scripts para guardar los datos y pasarlos a la pagina de ventas -->
+
+    <script>
+        function guardarInformacionProducto(elemento) {
+            var nombre = elemento.querySelector('.muestra-aretes-nombre').innerText;
+            var precio = elemento.querySelector('.muestra-aretes-precio').innerText;
+            var imagen = elemento.querySelector('img').src;
+            var descripcion = elemento.querySelector('.muestra-aretes-descripcion').innerText;
+            var medida = elemento.querySelector('.muestra-aretes-medida').innerText;
+            var stock = elemento.querySelector('.muestra-aretes-stock').innerText;
+            var tipo = "ANILLOS";
+            var idJoya = elemento.id;
+
+            localStorage.setItem('nombreProducto', nombre);
+            localStorage.setItem('precioProducto', precio);
+            localStorage.setItem('nombreImagen', imagen);
+            localStorage.setItem('descripcionProducto', descripcion);
+            localStorage.setItem('medidaProducto', medida);
+            localStorage.setItem('stockProducto', stock);
+            localStorage.setItem('tipoProducto', tipo);
+            localStorage.setItem('idProducto', idJoya);
+
+            console.log("prueba:", idJoya);
+        }
+    </script>
+
+    <!-- fin del script -->
+
+    <footer>
+        <div class="footer-content">
+            <div class="logotipo-footer">
+                <a class="logotipo" href="index.html">Carito</a>
+            </div>
+            <div class="derecho-reservado">
+                Todos los derechos reservados ©
+            </div>
+        </div>
+        <div class="grupo">
+            Grupo 03
+        </div>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,89 @@
+@import url("https://fonts.googleapis.com/css?family=Trirong");
+
+.ico {
+    font-size: 30px;
+}
+
+p {
+    margin-bottom: 0;
+}
+
+.cab {
+    font-weight: bolder;
+    margin-bottom: 18px;
+}
+
+.descri {
+    margin-top: -5px;
+    font-size: 11px;
+}
+
+#ic {
+    margin-top: 25%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+#ic1 {
+    margin-top: 25%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+#ic2 {
+    margin-top: 25%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+#ic3 {
+    margin-top: 25%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+#ic4 {
+    margin-top: 25%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+#ic5 {
+    margin-top: 25%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.linea-pasando-por-debajo {
+    margin-top: 122%;
+    position: absolute;
+    width: 2px;
+    /* Ancho de la línea */
+    height: 68%;
+    background-color: #6e6b6b;
+    /* Color de la línea */
+    left: 32%;
+    /* Posicionamiento en el centro del contenedor */
+    transform: translateX(-50%);
+    /* Centrar la línea */
+}
+
+.itemms {
+    margin-bottom: 10px;
+}
+
+.dat {
+    font-weight: bold;
+}
