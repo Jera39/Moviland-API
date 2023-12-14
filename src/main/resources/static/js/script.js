@@ -33,6 +33,10 @@ function realizarLogin(event) {
     })
     .then(response => response.json())
     .then(usuario => {
+        if(usuario.id = 10){
+            window.location.href = "Admin.html";
+            return;
+        }
         localStorage.setItem('nombreUsuario', usuario.nombre);
         localStorage.setItem('correoUsuario', usuario.correo);
         console.log(usuario.nombre)

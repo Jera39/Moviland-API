@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Joyas Elaboradas</title>
+    <title>Celulares</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -95,7 +95,7 @@
     <script>
         let pedidos;  // Declarar pedidos a nivel global
 
-        fetch('/api/v1/moviland/celular')
+        fetch('http://localhost:8085/api/v1/moviland/celular')
             .then(response => response.json())
             .then(pedidos => {
                 // Llenar dinámicamente la tabla de pedidos
