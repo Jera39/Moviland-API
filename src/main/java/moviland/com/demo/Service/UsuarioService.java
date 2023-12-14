@@ -3,13 +3,30 @@ package moviland.com.demo.Service;
 import org.springframework.stereotype.Service;
 
 import moviland.com.demo.Model.Usuario;
+import moviland.com.demo.Repository.UsuarioRepository;
 
 @Service
 public class UsuarioService {
-    /* 
-    Usuario confirmarUsuario(String correo, String contraseñaString);
+    
+    private final UsuarioRepository usuarioRepository;
 
-    void guardarUsuario(Usuario usuario);
+    public UsuarioService(UsuarioRepository usuarioRepository){
+        this.usuarioRepository = usuarioRepository;
+    }
 
-    Usuario buscarPorCorreo(String correo);*/
+    public boolean autentificar(String coreo, String contraseña){
+        if (usuarioRepository.findByCorreoAndContraseña(coreo, contraseña).isPresent()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public Usuario registrarUsuario(Usuario usuario){
+        return usuarioRepository.save(usuario);
+    }
+
+    public Usuario usuarioPorCorreo(String correo){
+        return usuarioRepository.findByCorreo(correo);
+    }
 }

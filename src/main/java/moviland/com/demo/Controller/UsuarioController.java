@@ -1,71 +1,36 @@
 package moviland.com.demo.Controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.Cookie;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+
 import moviland.com.demo.Model.Usuario;
 import moviland.com.demo.Service.UsuarioService;
 
-@Controller
+@RestController
+@RequestMapping("api/v1/moviland/user")
 public class UsuarioController {
     @Autowired
     private UsuarioService usuarioService;
-    /* 
-    @GetMapping("/login")
-    public String login(Model model) {
-        Usuario usuario = new Usuario();
-        model.addAttribute("usuario", usuario);
-        return "login";
+
+    @PostMapping("/registro")
+    public Usuario registrarUsuario(@RequestBody Usuario usuario){
+        return usuarioService.registrarUsuario(usuario);
     }
 
-    @PostMapping("/autentificar")
-    private String autentificar(@ModelAttribute("usuario") Usuario usuario, HttpServletResponse response, Model model) {
-
-        Usuario user = usuarioService.confirmarUsuario(usuario.getCorreo(), usuario.getContraseña());
-        if (user == null) {
-            return "login";
-        } else {
-            String nombreUsuario = user.getNombre();
-            Cookie usernameCookie = new Cookie("nombreUsuario", nombreUsuario);
-            usernameCookie.setMaxAge(3600);
-            response.addCookie(usernameCookie);
-            System.out.println(nombreUsuario);
-            model.addAttribute("username", nombreUsuario);
-            return "index";
-
-        }
+    @PostMapping("/login")
+    public boolean login(@RequestBody Usuario usuario){
+        return usuarioService.autentificar(usuario.getCorreo(),usuario.getContraseña());
     }
 
-    @GetMapping("/registro")
-    private String registro(Model model) {
-        Usuario usuario = new Usuario();
-        model.addAttribute("usuario", usuario);
-        return "registro";
+    @GetMapping(path = "{correo}")
+    public Usuario usuarioPorCorreo(@PathVariable("correo") String correo){
+        return usuarioService.usuarioPorCorreo(correo);
     }
-
-    @PostMapping("/registroForm")
-    private String registroForm(@ModelAttribute("usuario") Usuario usuario) {
-
-        Usuario user = usuarioService.buscarPorCorreo(usuario.getCorreo());
-        if (user == null) {
-            usuarioService.guardarUsuario(usuario);
-            return "login";
-        } else {
-            return "registro";
-        }
-    }
-
-    @GetMapping("/cerrarSesion")
-    private String cerrarSesiom(Model model, HttpServletResponse response) {
-        Cookie cookie = new Cookie("nombreUsuario", null);
-        cookie.setMaxAge(0);
-        response.addCookie(cookie);
-        return "redirect:/login";
-    }
-    */
+ 
 }

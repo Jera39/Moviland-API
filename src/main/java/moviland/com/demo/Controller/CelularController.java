@@ -17,7 +17,7 @@ import moviland.com.demo.Model.Celular;
 import moviland.com.demo.Service.CelularService;
 
 @RestController
-@RequestMapping("api/v1/moviland")
+@RequestMapping("api/v1/moviland/celular")
 public class CelularController {
 	@Autowired
     private final CelularService celularService;
