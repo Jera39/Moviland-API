@@ -13,7 +13,7 @@ public class Celular {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID")
-    private int id;
+    private Integer id;
 
     @Column(name = "marca", nullable = false)
     private String marca;
@@ -51,7 +51,7 @@ public class Celular {
     public Celular() {
     }
 
-    public Celular(int id, String marca, String nombre, int stock, Float pantalla, Float bateria,
+    public Celular(int id, String marca, String nombre, Integer stock, Float pantalla, Float bateria,
             String sistemaOperativo, Float camara, Long almacenamiento, String imagen, Float precio, Boolean estado) {
         this.id = id;
         this.marca = marca;
@@ -69,11 +69,11 @@ public class Celular {
 
     // Getters y setters
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
