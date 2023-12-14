@@ -8,7 +8,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-
+import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletResponse;
 import moviland.com.demo.Model.Usuario;
 import moviland.com.demo.Service.UsuarioService;
 
@@ -24,9 +25,20 @@ public class UsuarioController {
     }
 
     @PostMapping("/login")
-    public boolean login(@RequestBody Usuario usuario){
-        return usuarioService.autentificar(usuario.getCorreo(),usuario.getContraseña());
+    public boolean login(@RequestBody Usuario usuario, HttpServletResponse response){
+        boolean autenticado = usuarioService.autentificar(usuario.getCorreo(), usuario.getContraseña());
+
+        if (autenticado) {
+            
+            Cookie cookie = new Cookie("nombreUsuario", usuarioService.usuarioPorCorreo(usuario.getCorreo()).getNombre());
+            cookie.setMaxAge(24 * 60 * 60); // Duración en segundos (aquí, 1 día)
+            cookie.setPath("/");
+            response.addCookie(cookie);
+        }
+
+        return autenticado;
     }
+
 
     @GetMapping(path = "{correo}")
     public Usuario usuarioPorCorreo(@PathVariable("correo") String correo){

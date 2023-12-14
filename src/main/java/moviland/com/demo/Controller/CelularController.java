@@ -32,6 +32,11 @@ public class CelularController {
         return this.celularService.getCelulars();
     }
 
+    @GetMapping(path = "/marca/{marca}")
+    public List<Celular> getListarCelularsPorMarca(@PathVariable("marca") String marca) {
+        return this.celularService.getCelularsPorMarca(marca);
+    }
+
 
     @PostMapping
 	public Celular guardarCelular(@RequestBody Celular celular){
