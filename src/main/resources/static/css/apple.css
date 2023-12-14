@@ -4,7 +4,6 @@ body {
     background-size: 100% 100%;
     background-position: center;
 }
-
 /* toda la parte del nav */
 
 nav {
@@ -108,24 +107,24 @@ nav {
     list-style-type: none;
     padding: 0;
     margin: 10px 20px;
-
+    
 }
 
 .submenu li {
     margin: 5px 0px 0px 10px;
 }
 
-.submenu li:hover {
+.submenu li:hover{
     transform: scale(1.2);
 }
 
-.submenu a {
+.submenu a{
     text-decoration: none;
     color: #000000;
 }
 
-.submenu a:hover {
-    color: #f2bb5b;
+.submenu a:hover{
+    color:#f2bb5b;
 }
 
 .nav-item:hover .submenu {
@@ -142,7 +141,6 @@ nav {
     width: 100%;
     display: flex;
     align-items: center;
-    color: #ffffff;
 }
 
 .fondo-inicio-texto {
@@ -151,22 +149,23 @@ nav {
     display: flex;
     width: 800px;
     flex-direction: column;
+    color: #ffffff;
 }
 
-.fondo-inicio-texto-menu {
+.fondo-inicio-texto-menu{
     font-family: 'Cormorant', serif;
     font-size: 25px;
     margin: 20px 0px;
 }
 
-.fondo-inicio-texto-categoria {
+.fondo-inicio-texto-categoria{
     font-family: 'Times New Roman', Times, serif;
     font-size: 40px;
     margin: 20px;
     font-weight: bold;
 }
 
-.fondo-inicio-texto-descripcion {
+.fondo-inicio-texto-descripcion{
     font-family: 'Cormorant', serif;
     font-size: 30px;
     margin: 0px 20px;
@@ -176,77 +175,55 @@ nav {
 
 /* contenido de ejemplo */
 
-.content-muestra {
+.content-muestra{
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4,1fr);
     grid-column-gap: 50px;
     justify-content: center;
     align-items: center;
     margin: 3%;
     padding-bottom: 5%;
-
+    
 }
 
-.content-muestra a {
+.content-muestra a{
     text-decoration: none;
     color: #000000;
 }
 
-.content-muestra-aretes {
+.content-muestra-celular{
     margin: 40px 10px;
 }
 
 
-.muestra-aretes-nombre {
-    text-align: center;
-    font-family: 'Courier New', Courier, monospace;
+.muestra-celular-nombre{
+    font-family:'Courier New', Courier, monospace;
     font-size: 25px;
-
+    text-align: center;
 }
 
-.muestra-aretes-imagen {
+.muestra-celular-imagen{
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 30px 20px;
 }
 
-.muestra-aretes-imagen:hover {
+.muestra-celular-imagen:hover{
     transform: scale(1.2);
     filter: brightness(1.15);
 }
 
-.muestra-aretes-imagen img {
+.muestra-celular-imagen img{
     height: 150px;
     width: auto;
 }
 
-.muestra-aretes-descripcion {
-    display: none;
-}
-
-.muestra-aretes-medida {
-    display: none;
-}
-
-.muestra-aretes-stock {
-    display: none;
-}
-
-
-/* fin del estilo de las estrellas */
-
-
-.muestra-aretes-precio {
-    text-align: center;
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 18px;
-}
 
 
 /* Estilizado completo del Footer */
 
-footer {
+footer{
     position: relative;
     display: flex;
     background: #000000;
@@ -254,7 +231,7 @@ footer {
     color: #ffffff;
 }
 
-.footer-content {
+.footer-content{
     display: grid;
     grid-template-columns: 1fr;
     justify-content: center;
@@ -263,7 +240,7 @@ footer {
     align-items: center;
 }
 
-.logotipo-footer {
+.logotipo-footer{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -271,16 +248,16 @@ footer {
     font-weight: bold;
 }
 
-.grupo {
+.grupo{
     position: absolute;
-    top: 39%;
+    top:39%;
     right: 3%;
     font-size: 45px;
     font-family: 'Dancing Script', cursive;
     font-weight: bold;
 }
 
-.derecho-reservado {
+.derecho-reservado{
     font-size: 20px;
     letter-spacing: 1px;
     padding-top: 20px;
