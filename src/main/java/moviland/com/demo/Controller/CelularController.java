@@ -1,24 +1,25 @@
 package moviland.com.demo.Controller;
 
 import java.util.List;
+import java.util.Optional;
 
-import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.CookieValue;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RestController;
 
 import moviland.com.demo.Model.Celular;
 import moviland.com.demo.Service.CelularService;
 
-@Controller
+@RestController
 @RequestMapping("api/v1/moviland")
 public class CelularController {
+	@Autowired
     private final CelularService celularService;
 
     public CelularController(CelularService celularService) {
@@ -31,30 +32,31 @@ public class CelularController {
         return this.celularService.getCelulars();
     }
 
-    public String registrarCelularForm(Model model,
-            @CookieValue(name = "nombreUsuario", required = false) String username) {
-        Celular celular = new Celular();
-        model.addAttribute("Celular", celular);
-        if (username != null) {
-            model.addAttribute("username", username);
-        } else {
-            model.addAttribute("username", null);
-        }
-        return "nuevoCelular";
-    }
 
     @PostMapping
-	public ResponseEntity<Object> guardarCelular(@RequestBody Celular celular){
-		return this.celularService.nuevoCelular(celular);
+	public Celular guardarCelular(@RequestBody Celular celular){
+		return celularService.nuevoCelular(celular);
 	}
-	@PostMapping
-	public ResponseEntity<Object> actualizarCelular(@RequestBody Celular celular){
+
+	@GetMapping(path = "/{id}")
+
+    public Optional<Celular> obtenerJoyaPorId(@PathVariable("id") Integer id) {
+        return this.celularService.obtenerPorId(id);
+    }
+
+	@PutMapping
+	public Celular actualizarCelular(@RequestBody Celular celular){
 		return this.celularService.nuevoCelular(celular);
 	}
 
     @DeleteMapping(path = "{celularId}")
-    public ResponseEntity<Object> eliminarCelular(@PathVariable("productId") Integer id){
-		return this.celularService.desabilitarCelular(id);
+    public String eliminarCelular(@PathVariable("celularId") Integer id){
+		boolean ok = this.celularService.desabilitarCelular(id);
+        if (ok) {
+            return "Se eliminó el celular con id: " + id;
+        } else {
+            return "No se pudo eliminar el celular con id: " + id;
+        }
 	}
    
 }

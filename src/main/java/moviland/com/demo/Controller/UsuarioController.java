@@ -15,7 +15,7 @@ import moviland.com.demo.Service.UsuarioService;
 public class UsuarioController {
     @Autowired
     private UsuarioService usuarioService;
-
+    /* 
     @GetMapping("/login")
     public String login(Model model) {
         Usuario usuario = new Usuario();
@@ -67,4 +67,5 @@ public class UsuarioController {
         response.addCookie(cookie);
         return "redirect:/login";
     }
+    */
 }

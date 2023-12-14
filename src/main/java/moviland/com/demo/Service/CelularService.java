@@ -9,7 +9,9 @@ import java.util.Optional;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
 
+@Service
 public class CelularService {
     HashMap<String,Object> data;
     private final CelularRepository celularRepository;
@@ -32,34 +34,20 @@ public class CelularService {
 		return celular;
 	}
 
-    public ResponseEntity<Object> nuevoCelular(Celular celular){
-		data = new HashMap<>();
-		Optional<Celular> cel = celularRepository.findById(celular.getId());
-		if(cel.isPresent()&&  celular.getId() == null) {
-			data.put("error", true);
-			data.put("message","error de id");
-			return new ResponseEntity(data,HttpStatus.CONFLICT);
-		}
-		data.put("message","Datos guardados");
-		if(celular.getId() != null) {
-			data.put("message","Datos actualizados");
-		}
-		celularRepository.save(celular);
-		data.put("datos", celular);
-		return new ResponseEntity(data,HttpStatus.CREATED);
+    public Celular nuevoCelular(Celular celular){
+		return celularRepository.save(celular);
 	}
 
-	public ResponseEntity<Object> desabilitarCelular(Integer id){
-		data = new HashMap<>();
-		boolean exists = this.celularRepository.existsById(id);
-		if(!exists) {
-			data.put("error", true);
-			data.put("message", "ID no valido");
-			return new ResponseEntity(data,HttpStatus.CONFLICT);
-		}
-		celularRepository.updateEstado(id,false);
-		data.put("message", "Celular desabilitado con éxito");
-		return new ResponseEntity(data,HttpStatus.ACCEPTED);
+	public boolean desabilitarCelular(Integer id){
+		try {
+            celularRepository.updateEstado(id,false);
+            return true;
+        } catch (Exception errException) {
+            return false;
+        }
+	}
+	public Optional<Celular> obtenerPorId(Integer id) {
+		return celularRepository.findById(id);
 	}
    
 	
