@@ -61,7 +61,7 @@ h6 {
 # Sections & Section Header
 --------------------------------------------------------------*/
 section {
-  padding: 80px 0;
+  padding: 10px 0;
   overflow: hidden;
 }
 
@@ -104,7 +104,7 @@ section {
 
 @media (min-width: 1199px) {
   .section-header p {
-    max-width: 60%;
+    max-width: 95%;
   }
 }
 
@@ -1177,7 +1177,7 @@ section {
 
 @media (min-width: 991px) {
   .about h2 {
-    max-width: 65%;
+    max-width: 95%;
     margin: 0 0 80px 0;
   }
 }
@@ -1305,7 +1305,7 @@ section {
 
 @media (max-width: 1024px) {
   .team .member .member-img {
-    margin: 0 60px;
+    margin: 0 10px;
   }
 }
 
@@ -2689,3 +2689,4 @@ section {
 .footer .footer-legal .credits a {
   color: var(--color-primary);
 }
+

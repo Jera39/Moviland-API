@@ -1,0 +1,48 @@
+/* Estilizado completo del Footer */
+
+.fotfot{
+    position: relative;
+    display: flex;
+    background: #000000;
+    justify-content: center;
+    color: #ffffff;
+}
+
+.footerter-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-content: center;
+    margin: 30px;
+    align-items: center;
+}
+
+.logotipopo-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    font-weight: bold;
+}
+
+.logotipopo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 60px;
+}
+
+.grupo {
+    position: absolute;
+    top: 39%;
+    right: 3%;
+    font-size: 45px;
+    font-family: 'Dancing Script', cursive;
+    font-weight: bold;
+}
+
+.derecho-reservado {
+    font-size: 20px;
+    letter-spacing: 1px;
+    padding-top: 20px;
+}
