@@ -7,8 +7,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -21,6 +19,10 @@ public class CelularService {
     }
     public List<Celular>getCelulars(){
 		return this.celularRepository.findByEstadoTrue();
+	}
+
+	public List<Celular>getCelularsPorMarca(String marca){
+		return this.celularRepository.celularesPorMarca(marca);
 	}
 
 	public Celular buscarCelular(Integer id){
