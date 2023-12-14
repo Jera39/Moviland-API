@@ -186,54 +186,34 @@ nav {
     color: #000000;
 }
 
-.content-muestra-aretes{
-    display: flex;
+.content-muestra-celular{
     margin: 40px 10px;
 }
 
 
-.muestra-aretes-nombre{
-    text-align: center;
+.muestra-celular-nombre{
     font-family:'Courier New', Courier, monospace;
     font-size: 25px;
-
+    text-align: center;
 }
 
-.muestra-aretes-imagen{
+.muestra-celular-imagen{
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 30px 20px;
 }
 
-.muestra-aretes-imagen:hover{
+.muestra-celular-imagen:hover{
     transform: scale(1.2);
     filter: brightness(1.15);
 }
 
-.muestra-aretes-imagen img{
-    height: 220px;
+.muestra-celular-imagen img{
+    height: 150px;
     width: auto;
 }
 
-
-.muestra-aretes-precio{
-    text-align: center;
-    font-family:'Courier New', Courier, monospace;
-    font-size: 18px;
-}
-
-.muestra-aretes-descripcion {
-    display: none;
-}
-
-.muestra-aretes-medida {
-    display: none;
-}
-
-.muestra-aretes-stock {
-    display: none;
-}
 
 
 /* Estilizado completo del Footer */

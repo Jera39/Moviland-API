@@ -94,39 +94,35 @@
             </div>
         </div>
         <div class="contenido">
-            <div class="content-muestra" id="joyas-container">
+            <div class="content-muestra" id="celular-container">
 
             </div>
             <script>
                 // Obtener las joyas desde el servidor
-                fetch('/joyas')
+                fetch('http://localhost:8085/api/v1/moviland/celular/marca/Xiaomi')
                     .then(response => response.json())
-                    .then(joyas => {
-                        // Filtrar las joyas del tipo "pendiente"
-                        const tipoDeJoya = joyas.filter(joya => joya.tipo === 'pulsera');
+                    .then(celular => {
+                       
+                        const celularContainer = document.getElementById('celular-container');
+                        celular.forEach(cel => {
+                            const celularElement = document.createElement('div');
+                            celularElement.classList.add('muestra-aretes');
 
-                        // Llenar dinámicamente el contenedor de joyas
-                        const joyasContainer = document.getElementById('joyas-container');
-                        tipoDeJoya.forEach(joya => {
-                            const joyaElement = document.createElement('div');
-                            joyaElement.classList.add('muestra-aretes');
-
-                            joyaElement.innerHTML = `
-                            <div id="${joya.id}" class="content-muestra-aretes">
-                                <a href="venta.html" onclick="guardarInformacionProducto(this)">
-                                    <div class="muestra-aretes-imagen">
-                                        <img src="https://drive.google.com/uc?export=view&id=${joya.imagen}" alt="">
+                            celularElement.innerHTML = 
+                            //<a href="venta.html" onclick="guardarInformacionProducto(this)">
+                            `
+                                <div id="${cel.id}" class="content-muestra-celular">
+                                <div class="muestra-celular-imagen">
+                                        <img src="${cel.imagen}" alt="">
                                     </div>
-                                    <div class="muestra-aretes-nombre">${joya.nombre}</div>
-                                    <div class="muestra-aretes-precio">${joya.precio}</div>
-                                    <div class="muestra-aretes-descripcion">${joya.descripcion}</div>
-                                    <div class="muestra-aretes-medida">${joya.medida}</div>
-                                    <div class="muestra-aretes-stock">${joya.stock}</div>
-                                </a>
-                            </div>
+                                    <div class="muestra-celular-nombre">${cel.nombre}</div>
+                                    <div class="muestra-celular-nombre">S/. ${cel.precio}</div>
+                                    <div class="muestra-celular-nombre">${cel.almacenamiento} GB</div>
+                                </div>
+                            </a>
                             `;
 
-                            joyasContainer.appendChild(joyaElement);
+                            celularContainer.appendChild(celularElement);
                         });
                     })
                     .catch(error => console.error('Error al obtener joyas:', error));
@@ -134,29 +130,7 @@
         </div>
     </main>
 
-    <!-- Los scripts para guardar los datos y pasarlos a la pagina de ventas -->
-
-    <script>
-        function guardarInformacionProducto(elemento) {
-            var nombre = elemento.querySelector('.muestra-aretes-nombre').innerText;
-            var precio = elemento.querySelector('.muestra-aretes-precio').innerText;
-            var imagen = elemento.querySelector('img').src;
-            var descripcion = elemento.querySelector('.muestra-aretes-descripcion').innerText;
-            var medida = elemento.querySelector('.muestra-aretes-medida').innerText;
-            var stock = elemento.querySelector('.muestra-aretes-stock').innerText;
-            var tipo = "BRAZALETES & PULSERAS"
-
-            localStorage.setItem('nombreProducto', nombre);
-            localStorage.setItem('precioProducto', precio);
-            localStorage.setItem('nombreImagen', imagen);
-            localStorage.setItem('descripcionProducto', descripcion);
-            localStorage.setItem('medidaProducto', medida);
-            localStorage.setItem('stockProducto', stock);
-            localStorage.setItem('tipoProducto', tipo);
-        }
-    </script>
-
-    <!-- fin del script -->
+    
 
     <footer>
         <div class="footer-content">
