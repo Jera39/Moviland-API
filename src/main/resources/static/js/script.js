@@ -23,7 +23,7 @@ function realizarLogin(event) {
     })
     .then(data => {
         if(data){
-            alert('¡Inicio de sesión exitoso!');
+            window.location.href = "index.html";
             console.log('Usuario autenticado:', data);
         }else{
             alert('¡error!');
