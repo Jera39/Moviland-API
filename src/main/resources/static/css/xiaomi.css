@@ -129,13 +129,14 @@ nav {
 /* fin de la personalizacion del submenu */
 
 .fondo-inicio{
-    background: url('../img/Pulseras/fondo-pulsera-4-recortado.jpg');
+    background: url('../img/inicio/xiaomi-wallpaper.jpg');
     background-size: cover;
     background-position: center;
     height: 400px;
     width: 100%;
     display: flex;
     align-items: center;
+    color: #ffffff;
 }
 
 .fondo-inicio-texto {

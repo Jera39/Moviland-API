@@ -135,13 +135,14 @@ nav {
 /* fin de la personalizacion del submenu */
 
 .fondo-inicio {
-    background: url('../img/aretes/arete-html-fondo-inicio.jpg');
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../img/inicio/iphone-wallpaper.jpg');
     background-size: cover;
     background-position: center;
     height: 400px;
     width: 100%;
     display: flex;
     align-items: center;
+    color: #ffffff;
 }
 
 .fondo-inicio-texto {
