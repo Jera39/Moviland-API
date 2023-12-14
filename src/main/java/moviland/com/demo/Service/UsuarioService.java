@@ -1,11 +1,15 @@
 package moviland.com.demo.Service;
 
+import org.springframework.stereotype.Service;
+
 import moviland.com.demo.Model.Usuario;
 
-public interface UsuarioService {
+@Service
+public class UsuarioService {
+    /* 
     Usuario confirmarUsuario(String correo, String contraseñaString);
 
     void guardarUsuario(Usuario usuario);
 
-    Usuario buscarPorCorreo(String correo);
+    Usuario buscarPorCorreo(String correo);*/
 }
